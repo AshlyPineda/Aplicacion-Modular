@@ -1,0 +1,87 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="/" target="_selft">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>ERP</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item> <a>Inicio</a></li>
+      <li nz-submenu nzOpen nzTitle="Gestion de Servicio" nzIcon="control">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/gestion-servicio/categorias">Categorias</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/gestion-servicio/ticket-pendientes">Ticket Pendientes</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/gestion-servicio/ticket-resueltos">Ticket Resueltos</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Gestion Financiera" nzIcon="bank">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/gestion-financiera/pagos">Pagos</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/gestion-financiera/gastos">Gastos</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a  routerLink="/gestion-financiera/estados-financieros">Estados Financieros</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Fabricación" nzIcon="api">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/fabricacion/materia-prima">Materia Prima</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/fabricacion/produccion">Produccion</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/fabricacion/desperdicios">Desperdicios</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Recursos Humanos" nzIcon="team">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/recursos-humanos/contrataciones">Contrataciones</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/recursos-humanos/salarios">Salarios</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/recursos-humanos/empleados">Empleados</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
